@@ -1,4 +1,4 @@
-DESCRIPTION = "Enable IMX219 Camera Module in linux-imx for i.MX95 19x19 EVK"
+DESCRIPTION = "Enable IMX219 Camera Module in linux-imx for i.MX8MP"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
