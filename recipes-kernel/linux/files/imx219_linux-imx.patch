@@ -21,3 +21,16 @@ index 23ad1e7ba969..c5c394822348 100644
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm-os08a20.dtb imx8mp-frdm-os08a20-dual.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mp-frdm-rpmsg.dtb
  
+diff --git a/arch/arm64/configs/imx_v8_defconfig b/arch/arm64/configs/imx_v8_defconfig
+index bc0dffff7ab8..b80dfb7b2355 100644
+--- a/arch/arm64/configs/imx_v8_defconfig
++++ b/arch/arm64/configs/imx_v8_defconfig
+@@ -613,7 +613,7 @@ CONFIG_VIDEO_NXP_NEOISP=m
+ CONFIG_VIDEO_MHDP_HDMIRX=y
+ CONFIG_VIDEO_MHDP_HDMIRX_CEC=y
+ CONFIG_VIDEO_HANTRO=m
+-CONFIG_VIDEO_IMX219=m
++CONFIG_VIDEO_IMX219=n
+ CONFIG_VIDEO_OV5640=y
+ CONFIG_VIDEO_OV5645=m
+ CONFIG_VIDEO_AP1302=m
