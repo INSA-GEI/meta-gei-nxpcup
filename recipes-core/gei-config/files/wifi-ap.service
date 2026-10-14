@@ -1,0 +1,38 @@
+[Unit]
+Description=NXP Wi-Fi Access Point (mlan0)
+After=systemd-modules-load.service
+Requires=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# attend que mlan0 apparaisse (max 10 s) au lieu d'un sleep fixe
+ExecStartPre=/bin/sh -c 'for i in 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20; do [ -e /sys/class/net/mlan0 ] && exit 0; sleep 0.5; done; exit 1'
+ExecStartPre=/sbin/ip addr flush dev mlan0
+ExecStartPre=/sbin/ip addr add 192.168.4.1/24 dev mlan0
+ExecStartPre=/sbin/ip link set mlan0 up
+ExecStart=/usr/sbin/hostapd -B /etc/hostapd.conf
+ExecStartPost=/usr/sbin/udhcpd /etc/udhcpd.conf
+ExecStop=/usr/bin/killall hostapd udhcpd
+
+[Install]
+WantedBy=multi-user.target

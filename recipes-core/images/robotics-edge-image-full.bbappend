@@ -17,9 +17,12 @@
 # export IMAGE_BASENAME = "robotics-edge-image-full"
 
 # Conflit de paquets dans rootfs
-IMAGE_INSTALL:remove = "mdns mdns-libnss-mdns"
+IMAGE_INSTALL:remove = " mdns mdns-libnss-mdns"
 PACKAGE_EXCLUDE:append = " mdns-libnss-mdns"
 #IMAGE_INSTALL:remove = "iptables"
 
 # Paquets manquants
-IMAGE_INSTALL:append = "git dtc nmap dnsmasq"
+IMAGE_INSTALL:append = " git dtc nmap dnsmasq"
+
+# ajout de la recette gei-config
+IMAGE_INSTALL:append = " gei-config"
