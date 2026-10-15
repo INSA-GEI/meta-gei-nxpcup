@@ -9,6 +9,7 @@ SRC_URI = " \
     file://hostapd.conf \
     file://udhcpd.conf \
     file://wifi-ap.service \
+    file://mcx_i2c \
 "
 
 S = "${UNPACKDIR}"
@@ -34,8 +35,10 @@ do_install() {
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${UNPACKDIR}/wifi-ap.service ${D}${systemd_system_unitdir}/
 
-#    install -d ${D}${ROOT_HOME}
+    install -d ${D}${ROOT_HOME}
 #    install -m 0644 ${UNPACKDIR}/bashrc-extra ${D}${ROOT_HOME}/.bashrc_extra
+    cp -r ${UNPACKDIR}/mcx_i2c ${D}${ROOT_HOME}/
+    chmod -r 0644 ${D}${ROOT_HOME}/mcx_i2c
 }
 
 FILES:${PN} += "${ROOT_HOME} ${sysconfdir} ${systemd_system_unitdir}"
